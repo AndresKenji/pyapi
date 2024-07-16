@@ -9,12 +9,18 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
+
+        stage('Checkout') {
             steps {
-                git url: 'https://github.com/AndresKenji/pyapi.git', branch: 'develop'
+                checkout scmGit(branches: [[name: '*/develop']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/AndresKenji/pyapi.git']])
             }
         }
 
+        stage('Run Unit Tests') {
+            steps {
+                bat 'pytest'
+            }
+        }
 
         stage('SonarQube Analysis') {
             environment {
@@ -45,11 +51,7 @@ pipeline {
             }
         }
 
-        stage('Run Unit Tests') {
-            steps {
-                bat 'pytest'
-            }
-        }
+        
     }
 
     post {
