@@ -17,8 +17,8 @@ pipeline {
         }
 
         stage('Run Unit Tests') {
-            steps {
-                bat 'pytest'
+            script {
+                'pytest'
             }
         }
 
