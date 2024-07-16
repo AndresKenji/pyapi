@@ -16,12 +16,6 @@ pipeline {
             }
         }
 
-        stage('Show python version') {
-            steps {
-                bat 'python --version'
-            }
-        }
-
         stage('Run Unit Tests') {
             steps {
                 bat 'pytest'
