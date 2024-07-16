@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run Unit Tests') {
             steps {
-                bat 'pytest'
+                sh 'pytest'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    bat "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=tu_proyecto -Dsonar.sources=."
+                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=tu_proyecto -Dsonar.sources=."
                 }
             }
         }
