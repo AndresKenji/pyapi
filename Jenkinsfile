@@ -18,7 +18,15 @@ pipeline {
 
         stage('Run Unit Tests') {
             steps {
-                sh 'pytest'
+                script {
+                    try {
+                        sh 'pytest'
+                    } catch (e) {
+                        echo "Tests failed: ${e}"
+                        currentBuild.result = 'FAILURE'
+                        throw e
+                    }
+                }
             }
         }
 
@@ -50,7 +58,11 @@ pipeline {
                 }
             }
         }
+    }
 
-        
+    post {
+        always {
+            cleanWs()
+        }
     }
 }
