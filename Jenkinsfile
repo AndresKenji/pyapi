@@ -11,13 +11,13 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git clone 'https://github.com/AndresKenji/pyapi.git'
+                git url: 'https://github.com/AndresKenji/pyapi.git', branch: 'develop'
             }
         }
 
         stage('Run Unit Tests') {
             steps {
-                sh 'app/pytest' 
+                sh 'pytest'
             }
         }
 
@@ -57,3 +57,4 @@ pipeline {
         }
     }
 }
+
