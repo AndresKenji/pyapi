@@ -6,7 +6,6 @@ pipeline {
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
         SONARQUBE_SERVER = 'localhost:9000'
         SONARQUBE_CREDENTIALS = 'apipy'
-        PYTHONPATH = "C:/Users/andre/AppData/Local/Programs/Python/Python310/python.exe"
     }
 
     stages {
@@ -16,11 +15,6 @@ pipeline {
             }
         }
 
-        stage('Run Unit Tests') {
-            script {
-                'pytest'
-            }
-        }
 
         stage('SonarQube Analysis') {
             environment {
@@ -48,6 +42,12 @@ pipeline {
                         docker.image("${env.DOCKER_IMAGE}").push()
                     }
                 }
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                bat 'pytest'
             }
         }
     }
