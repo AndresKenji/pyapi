@@ -6,6 +6,7 @@ pipeline {
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
         SONARQUBE_SERVER = 'localhost:9000'
         SONARQUBE_CREDENTIALS = 'apipy'
+        PYTHONPATH = "${WORKSPACE}/app"
     }
 
     stages {
