@@ -16,7 +16,11 @@ pipeline {
             }
         }
 
+
         stage('Run Unit Tests') {
+            steps {
+                bat 'python --version'
+            }
             steps {
                 bat 'pytest'
             }
