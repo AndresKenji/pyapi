@@ -15,12 +15,13 @@ pipeline {
                 git url: 'https://github.com/AndresKenji/pyapi.git', branch: 'develop'
             }
         }
-
-
         stage('Run Unit Tests') {
             steps {
                 bat 'python --version'
-            },
+                }
+        }
+
+        stage('Run Unit Tests') {
             steps {
                 bat 'pytest'
             }
