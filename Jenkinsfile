@@ -6,7 +6,7 @@ pipeline {
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
         SONARQUBE_SERVER = 'localhost:9000'
         SONARQUBE_CREDENTIALS = 'apipy'
-        PYTHONPATH = "${WORKSPACE}/app"
+        PYTHONPATH = "C:/Users/andre/AppData/Local/Programs/Python/Python310/python.exe"
     }
 
     stages {
@@ -18,7 +18,7 @@ pipeline {
 
         stage('Show python version') {
             steps {
-                bat 'C:\\Windows\\System32\\cmd.exe /c python --version'
+                bat 'python --version'
             }
         }
 
