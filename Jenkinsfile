@@ -5,7 +5,6 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials')
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
         SONARQUBE_SERVER = 'localhost:9000'
-        SONARQUBE_CREDENTIALS = 'apipy'
     }
 
     stages {
@@ -36,7 +35,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=tu_proyecto -Dsonar.sources=."
+                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=apipy -Dsonar.sources=."
                 }
             }
         }
