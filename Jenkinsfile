@@ -16,6 +16,12 @@ pipeline {
             }
         }
 
+        stage('Install dependencies') {
+            steps {
+                bat 'pip install -r requirements.txt'
+            }
+        }
+
         stage('Run Unit Tests') {
             steps {
                 bat 'pytest'
