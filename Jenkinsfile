@@ -18,7 +18,7 @@ pipeline {
 
         stage('Show python version') {
             steps {
-                bat 'python --version'
+                bat 'C:\\Windows\\System32\\cmd.exe /c python --version'
             }
         }
 
