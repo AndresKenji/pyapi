@@ -39,9 +39,7 @@ pipeline {
                     sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=apipy \
                     -Dsonar.projectName=apipy \
                     -Dsonar.projectVersion=1.0 \
-                    -Dsonar.language=py \
-                    -Dsonar.python.version=3.10
-                    "
+                    -Dsonar.language=py"
                 }
                 
             }
