@@ -8,7 +8,7 @@ router = APIRouter(
     responses={404:{"description":"Not Found"}}
 )
 
-templates = Jinja2Templates(directory="src/templates")
+templates = Jinja2Templates(directory="/app/src/templates")
 
 
 @router.get("/",summary="Retorna un documento html con la bienvenida y la hora", response_class=HTMLResponse)
