@@ -4,7 +4,6 @@ pipeline {
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials')
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
-        PYTHONPATH = "${WORKSPACE}/app/src"
     }
 
     stages {
