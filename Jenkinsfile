@@ -5,6 +5,7 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials')
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
         SONARQUBE_SERVER = 'localhost:9000'
+        SONARQUBE_TOKEN = credentials('apipytoken')
     }
 
     stages {
@@ -31,12 +32,18 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SCANNER_HOME = tool 'SonarQube Scanner'
+                SCANNER_HOME = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=apipy -Dsonar.sources=."
+                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=apipy \
+                    -Dsonar.projectName=apipy \
+                    -Dsonar.projectVersion=1.0 \
+                    -Dsonar.language=py \
+                    -Dsonar.python.version=3.10
+                    "
                 }
+                
             }
         }
 
