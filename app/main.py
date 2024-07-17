@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.src.routes import routes
+from src.routes import routes
 
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
@@ -25,6 +25,3 @@ app = FastAPI(
 
 app.include_router(routes.router)
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, port=8000, host='0.0.0.0')
