@@ -5,7 +5,7 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials')
         DOCKER_IMAGE = 'oscararodriguez/pyapi:latest'
         SONARQUBE_SERVER = 'localhost:9000'
-        SONARQUBE_TOKEN = credentials('apipytoken')
+        PYTHONPATH = "${WORKSPACE}/src"
     }
 
     stages {
