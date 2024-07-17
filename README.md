@@ -33,10 +33,10 @@ Esta API, creada con FastAPI, muestra una página web con un mensaje de bienveni
 
 1. Ejecuta la aplicación:
     ```bash
-    uvicorn main:app --reload
+    uvicorn main:app --reload --port 80
     ```
 
-Abre tu navegador y navega a `http://localhost:8000`. Deberías ver una página con un mensaje de bienvenida y la fecha y hora actuales.
+Abre tu navegador y navega a `http://localhost`. Deberías ver una página con un mensaje de bienvenida y la fecha y hora actuales.
 
 ## Uso en docker
 
@@ -52,11 +52,11 @@ docker build -t apipy .
 docker run -p 80:80 apipy
 ```
 
-Abre tu navegador y navega a `http://localhost:8000`. Deberías ver una página con un mensaje de bienvenida y la fecha y hora actuales.
+Abre tu navegador y navega a `http://localhost`. Deberías ver una página con un mensaje de bienvenida y la fecha y hora actuales.
 
 ## Documentación
 
 FastAPI genera automáticamente documentación interactiva la cual puede ser consultada en las siguientes rutas:
 
-- Documentación Swagger: `http://localhost:8000/docs`
-- Documentación Redoc: `http://localhost:8000/redoc`
+- Documentación Swagger: `http://localhost/docs`
+- Documentación Redoc: `http://localhost/redoc`
