@@ -49,7 +49,7 @@ docker build -t apipy .
 
 2. Ejecuta una instancia de la app:
 ```bash
-docker run -p 8000:8000 apipy
+docker run -p 80:80 apipy
 ```
 
 Abre tu navegador y navega a `http://localhost:8000`. Deberías ver una página con un mensaje de bienvenida y la fecha y hora actuales.
