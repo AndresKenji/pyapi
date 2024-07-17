@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'pytest'
+                        sh 'python3 pytest'
                     } catch (e) {
                         echo "Tests failed: ${e}"
                         currentBuild.result = 'FAILURE'
@@ -36,7 +36,8 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=apipy \
+                    sh "${SCANNER_HOME}/bin/sonar-scanner\
+                    -Dsonar.projectKey=apipy \
                     -Dsonar.projectName=apipy \
                     -Dsonar.projectVersion=1.0 \
                     -Dsonar.language=py"
