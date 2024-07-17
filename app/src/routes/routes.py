@@ -13,4 +13,4 @@ templates = Jinja2Templates(directory="/app/src/templates")
 
 @router.get("/",summary="Retorna un documento html con la bienvenida y la hora", response_class=HTMLResponse)
 async def hello(request:Request):
-    return templates.TemplateResponse("greatings.html", {"request":request, "date":datetime.now()})
+    return templates.TemplateResponse("/app/src/templates/greatings.html", {"request":request, "date":datetime.now()})
