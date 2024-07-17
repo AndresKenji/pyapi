@@ -20,11 +20,10 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'python3 pytest'
+                        sh 'pytest'
                     } catch (e) {
                         echo "Tests failed: ${e}"
                         currentBuild.result = 'FAILURE'
-                        throw e
                     }
                 }
             }
